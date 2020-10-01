@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Contact } from './models/contact.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contactApp';
+  myContact: Contact;
+
+  ngOnInit(): void {
+    this.myContact = new Contact(
+      'John Doe',
+    'john.doe@gmail.com',
+    '01166424893',
+    true,
+    'assets/avatar.png'
+  )
+  }
+  handleData(event: Contact){console.log('Revieved data!', event)}
 }
